@@ -1,0 +1,200 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+* {
+    @include box-sizing(border-box);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #282828;
+    font-family: sans-serif;
+}
+
+$width: 900px;
+$height: 728px;
+
+#canvas-wrapper {
+    @include border-radius(3px);
+    display: block;
+    width: $width + 350;
+    height: $height;
+    margin: 20px auto;
+    position: relative;
+    background: url(/images/io.png) fixed;
+}
+
+canvas {
+    @include border-radius(0 3px 3px 0);
+    background: url(/images/courtWithRim2.png) no-repeat;
+    margin-right: 0px;
+    position: relative;
+    float: right;
+}
+
+.left-column {
+    width: 325px;
+    float: left;
+    margin-left: 12.5px;
+    margin-top: 12.5px;
+    // background: #f2f2f0;
+}
+
+h1 {
+
+}
+
+input, #player-view, ul.player-list-view {
+    @include border-radius(3px 3px 0 0);
+    // @include box-shadow(inset 0px 1px 8px black);
+    background: #151515;
+    line-height: 2em;
+    color: #999;
+    padding: 3px 6px;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+    position: relative;
+    text-indent: 1em;
+    width: 100%;
+
+    &#js-search-player {
+        width: 100%;      
+    }
+}
+
+#player-view {
+    @include border-radius(0 0 3px 3px);
+}
+
+ul.player-list-view {
+    font-size: 1rem;
+    @include border-radius(0 0 3px 3px);
+    padding: 0;
+    margin: 0;
+    max-height: $height - 300;
+    overflow: auto;
+
+    li {
+        cursor: pointer;
+
+        &:hover {
+            background: #333;
+        }
+    }
+}
+
+#bucket-bubble {
+    @include border-radius(3px);
+    @include box-shadow(0px 0px 3px #333);
+    position: absolute;
+    background: #fff;
+    padding: 10px;
+    z-index: 999;   
+    width: 200px;
+    left: 300px;
+    display: none;
+}
+
+#player-view {
+    color: #ddd;
+    text-indent: 1em;
+
+    img {
+        max-width: 100%;
+        margin: 20px auto;
+        display: block;
+    }
+}
+
+
+.twitter-typeahead {
+    width: 100%;
+}
+
+
+.tt-dropdown-menu {
+    border-bottom: 1px solid #e3e3e3;
+    padding: 0;
+    width: 100%;
+    background: #fff;
+}
+
+[class*=tt-dataset] {
+    background: #fff;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+
+    .tt-suggestion {
+        line-height: 2em;
+        text-indent: 2.9em;
+        border-bottom: 1px solid #f2f2f0;
+        cursor: pointer;
+        text-align: left;
+        position: relative;
+
+        &:last-of-type { border-bottom: none; }
+        &:first-of-type { border-top: none; }
+
+        &:hover, &.tt-cursor {
+            background: #B3D1FF;
+            border-bottom-color: transparent;
+
+            .sightings-length {
+                background: #fff;
+            }
+        }
+    }
+
+    .tt-highlight {
+        background: #B3D1FF;
+    }
+
+    h2 {
+        text-indent: 1rem;
+        background: #fff;
+        font-size: 1.4em;
+        padding: 5px 0;
+        background: #f2f2f0;
+    }
+}
+
+.tt-empty-results {
+    line-height: 3;
+    text-indent: 0;
+    text-align: center;
+}
+
+
+#heatmap-key, #low, #high, #relfg {
+    position: absolute;
+    bottom: 14px;
+    left: 371px;
+    z-index: 99;
+}
+
+#low {
+    bottom: 10px;
+    left: 375px;
+    color: #4505FF;
+}
+
+#high {
+    color: #B20000;
+    bottom: 10px;
+    left: 535px;
+}
+
+#relfg {
+    color: #333;
+    bottom: 50px;
+    left: 420px;
+}

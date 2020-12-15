@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    #canvas-wrapper
+        #low low
+        #high high 
+        #relfg Relative FG %
+        img(src='/images/heatmap.png')#heatmap-key
+        #bucket-bubble
+        .left-column
+            input#js-search-player(type='text', placeholder='Search For A Player or Team')
+            #player-view
+            ul.player-list-view
+        canvas#d-machine(width='900', height='728')
+
+
+    script(type='text/javascript', src='lib/require.js', data-main='lib/dmachine')
+    script(type='text/template')#bubble-template
+        |Number of Shots: <%= numShots %>
+        |Defender Dist.: <%= defenderDistance %> ft.
+        |FG Percent: <%= FGPercent %>%
+    script(type='text/template')#player-template
+        <img src='<%= url %>' />
+        .player-stats
+            p Total Shots Against: <%= totalShots %> shots
+            p FG Percent Against: <%= FGPercent %>%
+            p Average Distance: <%= averageDistance %> ft
+
+    script(type='text/template')#suggestion-team-template
+        | <%= val %>
+    script(type='text/template')#suggestion-player-template
+        | <%= val %>
